@@ -1,0 +1,309 @@
+{
+    "labiales": [
+        {
+            "subcat": "Rojos",
+            "product": [
+                {
+                    "name": "Concentré Total",
+                    "tonos": ["rouge corail"],
+                    "desc": "10 beneficios en 1",
+                    "price": 15290,
+                    "color": ["#bd233e"]
+                },
+                {
+                    "name": "Dúo Amplifiant",
+                    "tonos": ["rouge bourgogne"],
+                    "desc": "Mayor definición y volumen",
+                    "price": 13590,
+                    "color": ["#881e2c"]
+                },
+                {
+                    "name": "Dúo Hydra Matte",
+                    "tonos": ["pure red", "rouge rubi"],
+                    "desc": "Color intenso, extra hidrata",
+                    "price": 13590,
+                    "color": ["#b62540", "#6e1817"]
+                }
+            ]
+        },
+        {
+            "subcat": "Vinos",
+            "product": [
+                {
+                    "name": "Dúo Amplifiant",
+                    "tonos": ["vin intense", "vin rouge"],
+                    "desc": "Mayor definición y volumen",
+                    "price": 13590,
+                    "color": ["#8e3d49", "#952132"]
+                },
+                {
+                    "name": "Dúo Hydra Matte",
+                    "tonos": ["vin intense"],
+                    "desc": "Color intenso, extra hidrata",
+                    "price": 13590,
+                    "color": ["#6d0c2e"]
+                }
+            ]
+        },
+        {
+            "subcat": "Nude",
+            "product": [
+                {
+                    "name": "Dúo Hydra Matte",
+                    "tonos": ["deep apricot"],
+                    "desc": "Color intenso, extra hidrata",
+                    "price": 13590,
+                    "color": ["#c26061"]
+                }
+            ]
+        },
+        {
+            "subcat": "Rosas",
+            "product": [
+                {
+                    "name": "Dúo Amplifiant",
+                    "tonos": ["rosewood", "rose terracota"],
+                    "desc": "Mayor definición y volumen",
+                    "price": 13590,
+                    "color": ["#c87a79", "#913f3e"]
+                },
+                {
+                    "name": "Dúo Hydra Matte",
+                    "tonos": ["velvet rose"],
+                    "desc": "Color intenso, extra hidrata",
+                    "price": 13590,
+                    "color": ["#bb6b6c"]
+                }
+            ]
+        },
+        {
+            "subcat": "Marrones",
+            "product": [
+                {
+                    "name": "Dúo Amplifiant",
+                    "tonos": ["caramel mocha"],
+                    "desc": "Mayor definición y volumen",
+                    "price": 13590,
+                    "color": ["#935844"]
+                },
+                {
+                    "name": "Dúo Hydra Matte",
+                    "tonos": ["autumn mocha"],
+                    "desc": "Color intenso, extra hidrata",
+                    "price": 13590,
+                    "color": ["#904d3a"]
+                }
+            ]
+        },
+        {
+            "subcat": "Morados",
+            "product": [
+                {
+                    "name": "Dúo Amplifiant",
+                    "tonos": ["berry violet", "violet malve"],
+                    "desc": "Mayor definición y volumen",
+                    "price": 13590,
+                    "color": ["#a76171", "#895465"]
+                },
+                {
+                    "name":"Dúo Hydra Matte",
+                    "tonos": ["violet supreme"],
+                    "desc": "Color intenso, extra hidrata",
+                    "price": 13590,
+                    "color": ["#84047d"]
+                }
+            ]
+        },
+        {
+            "subcat": "Fucsias",
+            "product": [
+                {
+                    "name": "Dúo Amplifiant",
+                    "tonos": ["fuchsia violet", "raspberry"],
+                    "desc": "Mayor definición y volumen",
+                    "price": 13590,
+                    "color": ["#a74a72", "#b95e63"]
+                },
+                {
+                    "name": "Dúo Hydra Matte",
+                    "tonos": ["berry riche", "deep fucsia"],
+                    "desc": "Color intenso, extra hidrata",
+                    "price": 13590,
+                    "color": ["#932b71", "#9f0664"]
+                }
+            ]
+        },
+        {
+            "subcat": "Corales",
+            "product": [
+                {
+                    "name": "Dúo Hydra Matte",
+                    "tonos": ["coral peach"],
+                    "desc": "Color intenso, extra hidrata",
+                    "price": 13590,
+                    "color": ["#d37669"]
+                }
+            ]
+        }
+    ],
+    "Máscaras": [
+        {
+            "subcat": "Volumen",
+            "product": [
+                {
+                    "name": "Opulence",
+                    "tonos": ["noir"],
+                    "desc": "Volumen inmediato",
+                    "price": 13590,
+                    "color": ["#101010"]
+                }
+            ]
+        },
+        {
+            "subcat": "Alargamiento",
+            "product": [
+                {
+                    "name": "Megacils Extend",
+                    "tonos": ["noir"],
+                    "desc": "Largo al instante",
+                    "price": 13590,
+                    "color": ["#101010"]
+                },
+                {
+                    "name": "Megacils Extend",
+                    "tonos": ["noir"],
+                    "desc": "Efecto largo extremo",
+                    "price": 13590,
+                    "color": ["#101010"]
+                }
+            ]
+        }
+    ],
+    "bases": [
+        {
+            "subcat": "Natural",
+            "product": [
+                {
+                    "name": "Corrector Facial en Lapiz",
+                    "tonos": ["obscure 8-9"],
+                    "desc": "Cubre bolsas y ojeras",
+                    "price": 13590,
+                    "color": ["#ac7139"]
+                }
+            ]
+        },
+        {
+            "subcat": "Mate",
+            "product": [
+                {
+                    "name": "Mousse Matiffiant",
+                    "tonos": ["claire 1", "claire 2", "claire 3", "claire 4", "medium 5", "medium 6", "medium 7", "obscure 8", "obscure 9"],
+                    "desc": "Textura mousse y acabado mate",
+                    "price": 17590,
+                    "color": ["#ebb785", "#eaa87f", "#e6ae82", "#f0b27e", "#e1b98f", "#e3aa72", "#bc8865", "#a17654", "#73441e"]
+                },
+                {
+                    "name": "Rejuvenecedora",
+                    "tonos": ["claire 1", "claire 2", "claire 3", "claire 4", "medium 5", "medium 6", "medium 7", "obscure 8", "obscure 9"],
+                    "desc": "Cubre signos de laedad",
+                    "price": 19290,
+                    "color": ["#e5af6f", "#f1a86e", "#e19d51", "#df9f6d", "#d9aa78", "#c59360", "#b07956", "#9f6d33", "#834e24"]
+                },
+                {
+                    "name": "Aclaradora De Manchas Clarité",
+                    "tonos": ["110C", "170N", "180F", "210F", "220C", "230N", "270C", "310C", "350N"],
+                    "desc": "Minimiza y aclara de manchas",
+                    "price": 19290,
+                    "color": ["#f8bc8c", "#dda677", "#d8a27e", "#d2986a", "#ca9765", "#b8855e", "#bf8652", "#c78852", "#b77e4d"]
+                }
+            ]
+        }        
+    ],
+    "Polvos": [
+        {
+            "subcat": "Natural",
+            "product": [
+                {
+                    "name": "Polvos Sueltos Extra finos",
+                    "tonos": ["porcelaine", "traslucide", "sante"],
+                    "desc": "Empareja, protege, y sella",
+                    "price": 15990,
+                    "color": ["#f0e9d9", "#f0e9d9", "#f0e9d9"]
+                },
+                {
+                    "name": "Translucent",
+                    "tonos": ["translucido"],
+                    "desc": "Controla la grasa",
+                    "price": 15990,
+                    "color": ["#ffdcc4"]
+                }
+            ]
+        },
+        {
+            "subcat": "Mate",
+            "product": [
+                {
+                    "name": "Compactos Doble Uso Ed. De Lujo",
+                    "tonos": ["claire 1-2-3", "claire 4", "medium 5", "medium 6", "medium 7", "obscure 8-9"],
+                    "desc": "Cubre imperfecciones, matifica",
+                    "price": 19290,
+                    "color": ["#f5c4a1", "#fcc09c", "#f1b38d", "#f1ae81", "#e7a985", "#f5a36c"]
+                },
+                {
+                    "name": "Control De Brillo FM",
+                    "tonos": ["claire 1-2-3", "claire 4", "medium 5", "medium 6", "medium 7", "obscure 8-9"],
+                    "desc": "Elimanan el exceso de brillo",
+                    "price": 15990,
+                    "color": ["#f2c8a1", "#f9c39e", "#f1b185", "#f0a874", "#e2ae86", "#e0a06f"]
+                },
+                {
+                    "name": "Polvos Compactos Fps 15",
+                    "tonos": ["claire 1-2-3", "claire 4", "medium 5", "medium 6", "medium 7", "obscure 8-9"],
+                    "desc": "Hasta 24 hora sin retoques",
+                    "price": 20790,
+                    "color": ["#fac8a1", "#ffc19e", "#eab186", "#e9a36e", "#ecaf8c", "#dda37a"]
+                }
+            ]
+        }
+    ],
+    "Delinear": [
+        {
+            "subcat": "Lápiz",
+            "product": [
+                {
+                    "name": "Color Intense",
+                    "tonos": ["noir", "brun"],
+                    "desc": "Color intenso y suave",
+                    "price": 9890,
+                    "color": ["#1b1b1b", "#2f110e"]
+                }
+            ]
+        },
+        {
+            "subcat": "Líquido",
+            "product": [
+                {
+                    "name": "Liner Illimité",
+                    "tonos": ["noir", "brun", "bleu", "burgundy", "metallic", "golden"],
+                    "desc": "Color intenso y larga duración",
+                    "price": 11690,
+                    "color": ["#1e1e1e", "#6c4434", "#313a65", "#772345", "#c1c1c9", "#d9a34c"]
+                }
+            ]
+        }
+    ],
+    "Rubores": [
+        {
+            "subcat": "-",
+            "product": [
+                {
+                    "name": "Blush Delicat",
+                    "tonos": ["eden", "rose the", "abricot dore", "dolce sand", "bronze", "pure rose"],
+                    "desc": "Color natural, alta adherencia",
+                    "price": 16790,
+                    "color": ["#ed958c", "#ef997d", "#ec8566", "#e28e6c", "#cb8c72", "#d47588"]
+                }
+            ]
+        }
+    ]
+}
