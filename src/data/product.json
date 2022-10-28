@@ -1,7 +1,7 @@
 {
     "labiales": [
         {
-            "subcat": "Rojos",
+            "subcategory": "Rojos",
             "product": [
                 {
                     "name": "Concentré Total",
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "subcat": "Vinos",
+            "subcategory": "Vinos",
             "product": [
                 {
                     "name": "Dúo Amplifiant",
@@ -46,7 +46,7 @@
             ]
         },
         {
-            "subcat": "Nude",
+            "subcategory": "Nude",
             "product": [
                 {
                     "name": "Dúo Hydra Matte",
@@ -58,7 +58,7 @@
             ]
         },
         {
-            "subcat": "Rosas",
+            "subcategory": "Rosas",
             "product": [
                 {
                     "name": "Dúo Amplifiant",
@@ -77,7 +77,7 @@
             ]
         },
         {
-            "subcat": "Marrones",
+            "subcategory": "Marrones",
             "product": [
                 {
                     "name": "Dúo Amplifiant",
@@ -96,7 +96,7 @@
             ]
         },
         {
-            "subcat": "Morados",
+            "subcategory": "Morados",
             "product": [
                 {
                     "name": "Dúo Amplifiant",
@@ -115,7 +115,7 @@
             ]
         },
         {
-            "subcat": "Fucsias",
+            "subcategory": "Fucsias",
             "product": [
                 {
                     "name": "Dúo Amplifiant",
@@ -134,7 +134,7 @@
             ]
         },
         {
-            "subcat": "Corales",
+            "subcategory": "Corales",
             "product": [
                 {
                     "name": "Dúo Hydra Matte",
@@ -148,7 +148,7 @@
     ],
     "Máscaras": [
         {
-            "subcat": "Volumen",
+            "subcategory": "Volumen",
             "product": [
                 {
                     "name": "Opulence",
@@ -160,7 +160,7 @@
             ]
         },
         {
-            "subcat": "Alargamiento",
+            "subcategory": "Alargamiento",
             "product": [
                 {
                     "name": "Megacils Extend",
@@ -181,7 +181,7 @@
     ],
     "bases": [
         {
-            "subcat": "Natural",
+            "subcategory": "Natural",
             "product": [
                 {
                     "name": "Corrector Facial en Lapiz",
@@ -193,7 +193,7 @@
             ]
         },
         {
-            "subcat": "Mate",
+            "subcategory": "Mate",
             "product": [
                 {
                     "name": "Mousse Matiffiant",
@@ -221,7 +221,7 @@
     ],
     "Polvos": [
         {
-            "subcat": "Natural",
+            "subcategory": "Natural",
             "product": [
                 {
                     "name": "Polvos Sueltos Extra finos",
@@ -240,7 +240,7 @@
             ]
         },
         {
-            "subcat": "Mate",
+            "subcategory": "Mate",
             "product": [
                 {
                     "name": "Compactos Doble Uso Ed. De Lujo",
@@ -268,7 +268,7 @@
     ],
     "Delinear": [
         {
-            "subcat": "Lápiz",
+            "subcategory": "Lápiz",
             "product": [
                 {
                     "name": "Color Intense",
@@ -280,7 +280,7 @@
             ]
         },
         {
-            "subcat": "Líquido",
+            "subcategory": "Líquido",
             "product": [
                 {
                     "name": "Liner Illimité",
@@ -294,7 +294,7 @@
     ],
     "Rubores": [
         {
-            "subcat": "-",
+            "subcategory": "-",
             "product": [
                 {
                     "name": "Blush Delicat",

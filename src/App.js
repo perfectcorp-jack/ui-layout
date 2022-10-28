@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       category: 'labiales',
-      subcat: 'Rojos',
+      subcategory: 'Rojos',
       product: 0,
       color: 0,
       tonos: '',
@@ -24,12 +24,12 @@ class App extends React.Component {
     this.setState({ 
       category: event.target.value, 
       product: 0, 
-      subcat: data[event.target.value][0].subcat,
+      subcategory: data[event.target.value][0].subcategory,
     });
   }
 
   handleSubcategory(event) {
-    this.setState({ subcat: event.target.value, color: 0, product: 0 });
+    this.setState({ subcategory: event.target.value, color: 0, product: 0 });
   }
 
   handleProduct(id) {
@@ -47,7 +47,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { category, subcat, product, color } = this.state;
+    const { category, subcategory, product, color } = this.state;
     return (
       <div className="App" style={{ textAlign: 'center', width: '100%' }}>
         {/* category */}
@@ -63,10 +63,10 @@ class App extends React.Component {
 
         {/* subcategory */}
         <div style={{ marginTop: '2vh' }}>
-          <select style={{ width: '10vh', height: '3vh' }} value={this.state.subcat} onChange={this.handleSubcategory}>
+          <select style={{ width: '10vh', height: '3vh' }} value={this.state.subcategory} onChange={this.handleSubcategory}>
             {data[category].map((labial) => (
-              <option key={labial.id} value={labial.subcat}>
-                {labial.subcat}
+              <option key={labial.id} value={labial.subcategory}>
+                {labial.subcategory}
               </option>
             ))}
           </select>
@@ -75,9 +75,9 @@ class App extends React.Component {
           <div>
             {data[category].map((labial) => (
               <div key={labial.id}>
-                {labial.subcat === subcat && (
+                {labial.subcategory === subcategory && (
                   <div style={{ textAlign: 'center' }}>
-                    <h1>{labial.subcat}</h1>
+                    <h1>{labial.subcategory}</h1>
                     {labial.product.map((products, id) => (
                       <div>
                         <a onClick={() => this.handleProduct(id)}>
