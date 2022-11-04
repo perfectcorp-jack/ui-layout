@@ -1,6 +1,66 @@
 @font-face {
-  font-family: 'FreightBigPro';
-  src: local('./fonts/FreightBigPro-Black.otf') format('opentype');
+  font-family: 'FreightBigProBla';
+  src: local('./fonts/Freight Big Pro/FreigBigProBla.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProBlaIta';
+  src: local('./fonts/Freight Big Pro/FreigBigProBlaIta.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProBol';
+  src: local('./fonts/Freight Big Pro/FreigBigProBol.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProBolIta';
+  src: local('./fonts/Freight Big Pro/FreigBigProBolIta.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProBoo';
+  src: local('./fonts/Freight Big Pro/FreigBigProBoo.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProBooIta';
+  src: local('./fonts/Freight Big Pro/FreigBigProBooIta.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProLig';
+  src: local('./fonts/Freight Big Pro/FreigBigProLig.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProLigIta';
+  src: local('./fonts/Freight Big Pro/FreigBigProLigIta.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProMed';
+  src: local('./fonts/Freight Big Pro/FreigBigProMed.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProMedIta';
+  src: local('./fonts/Freight Big Pro/FreigBigProMedIta.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProSem';
+  src: local('./fonts/Freight Big Pro/FreigBigProSem.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FreightBigProSemIta';
+  src: local('./fonts/Freight Big Pro/FreigBigProSemIta.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'GothamBlack';
+  src: local('./fonts/Gotham/Gotham-Black.otf') format('opentype');
 }
 
 .App {
@@ -27,7 +87,7 @@
 .Nav-title {
   font-size: 28px;
   font-weight: bold;
-  font-family: 'FreightBigPro';
+  font-family: 'FreightBigProSemIta';
 }
 
 .Nav-image {
@@ -57,4 +117,8 @@
   color: rgb(150, 150, 150);
   font-size: 12px;
   line-height: 1;
+}
+
+.Select {
+  font-family: 'GothamBlack';
 }
