@@ -121,4 +121,23 @@
 
 .Select {
   font-family: 'GothamBlack';
+  appearance: none;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADuSURBVHgB7dZdDYNAEATgkVAJK6EScFIJxQE4oA6Kk0pAAhKQ0N6ll3YJbQjL/fAwX7KP7C4HTACIiIiIiCihE8rZPbtxNbmqkF8VZjcwktDgGapGPlc11+9gfhLialTNzKexQaPmjWGHXcTVoJp2SMOf8l3NGRBhed28T9Ucy0PqkSg8WkR+vFi+pi0SqzG/iTPs/LVFgsIPHncOvmCeNBUyE9gTKnrSWAm2J1SHdGFgdsP6Uj5VHsiQNFYt/r8WgsxJY/UroWJ88FnphSd8Y7LUT6GJYH7qRZPGSvD+oA+TNFaHShoiIiIiIvp4AVGqY5+MWwXaAAAAAElFTkSuQmCC');
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 0px 14px 0px 0px;
+  background-size: 20px;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1em) center;
+}
+
+select.Select {
+  
+}
+
+.Select:focus-visible {
+  outline: none;
 }

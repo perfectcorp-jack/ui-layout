@@ -32,13 +32,13 @@ import './fonts/Gotham/Gotham-XLightItalic.otf';
 import lbel from './icon/lbel.png';
 import cross from './icon/cbimage.png';
 import image from './icon/image.png';
-import looks from './category_icons/LOOKS.png';
-import labiales from './category_icons/LABIALES.png';
-import mascaras from './category_icons/MASCARAS.png';
-import bases from './category_icons/BASES.png';
-import polvos from './category_icons/POLVOS.png';
-import delinear from './category_icons/DELINEADORES.png';
-import rubores from './category_icons/RUBORES.png';
+import looks from './category_icons/looks.png';
+import labiales from './category_icons/labiales.png';
+import mascaras from './category_icons/Máscaras.png';
+import bases from './category_icons/bases.png';
+import polvos from './category_icons/Polvos.png';
+import delinear from './category_icons/Delinear.png';
+import rubores from './category_icons/Rubores.png';
 
 
 class App extends React.Component {
@@ -46,7 +46,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: 'labiales',
+      category: 'Labiales',
+      categoryColor: 'rgb(150, 150, 150)',
       subcategory: 'Rojos',
       product: 0,
       color: 0,
@@ -58,12 +59,13 @@ class App extends React.Component {
     this.handleColor = this.handleColor.bind(this);
   }
 
-  handleCategory(event) {
-    console.log(event.target.value);
+  handleCategory(key) {
+    console.log(key);
     this.setState({
-      category: event.target.value,
+      category: key,
+      // categoryColor: 'rgb(97, 75, 121)',
       product: 0,
-      subcategory: data[event.target.value][0].subcategory,
+      subcategory: data[key][0].subcategory,
     });
   }
 
@@ -86,10 +88,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { category, subcategory, product, color } = this.state;
+    const { category, categoryColor, subcategory, product, color } = this.state;
+    const categoryImage = [labiales, mascaras, bases, polvos, delinear, rubores];
     return (
       <div className="App" style={{ textAlign: 'center', width: '1400px', height: '820px', minWidth: '1160px', minheight: '820px' }}>
-        <div style={{ position: 'absolute', left: '10%', top: 'calc(24%)', width: '39%', height: '550px', backgroundColor: 'rgb(224, 224, 224)' }}></div>
+        <div style={{ position: 'absolute', left: '10%', top: 'calc(24%)', width: '546px', height: '550px', backgroundColor: 'rgb(246, 246, 246)' }}></div>
         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0px 10%', alignItems: 'center', backgroundColor: 'rgb(246, 246, 246)', height: '12%', }}>
           <div className='Nav-title'>Maquillador virtual</div>
           <div>
@@ -98,28 +101,25 @@ class App extends React.Component {
           <img src={cross} style={{ width: '15px', height: '15px' }}></img>
         </div>
         {/* category */}
-        <div style={{ justifyContent: 'center', height: '8%', padding: '0px 10%', backgroundColor: 'rgb(246, 246, 246)' }}>
-          <div style={{ display: 'flex', width: '100%', height: '100%', justifyContent: 'center' }}>
-            {Object.entries(data).map(([key, value]) => {
+        <div style={{ padding: '0px 10%', width: '100%', height: '8%', boxSizing: 'border-box', backgroundColor: 'rgb(246, 246, 246)' }}>
+          <div style={{ boxSizing: 'border-box', width: '100%', height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+            {Object.entries(data).map(([key, value], index) => {
               return (
-                <div style={{ width: '150px' }}>
-                  <a href='javascript:;' onClick={this.handleCategory} style={{ padding: '0px', margin: '0px', width: '100%', height: '100%', boxSizing: 'border-box', position: 'relative', textDecoration: 'none', maxWidth: '150px' }}>
-                    <div>
-                      <img src={lbel} style={{ width: '32px', height: '32px' }}></img>
-                      <div>{key}</div>
-                    </div>
-                  </a>
-                  {/* <button style={{ height: '3vh', marginRight: '2vh' }} value={key} onClick={this.handleCategory}></button> */}
-                </div>
+                <a onClick={() => this.handleCategory(key)} style={{ padding: '0px', margin: '0px', width: '100%', height: '100%', boxSizing: 'border-box', position: 'relative', textDecoration: 'none', maxWidth: '150px' }}>
+                  <div style={{ position: 'absolute', left: '8%', top: '6%', width: 'calc(84%)', height: 'calc(94%)', lineHeight: 1 }}>
+                    <img src={categoryImage[index]} style={{ position: 'absolute', left: '50%', top: '30%', width: '24px', height: '24px', transform: 'translate(-50%, -50%)', objectFit: 'contain' }}></img>
+                  </div>
+                  <div style={{ position: 'absolute', left: '0px', top: '49%', width: '100%', height: '51%', lineHeight: 1, textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold', color: categoryColor, fontSize: '12px' }}>{key}</div>
+                </a>
               )
             })}
           </div>
         </div>
 
-        <div style={{ position: 'absolute', right: 'calc(10% + 0px)', top: 'calc(24%)', width: '39%', height: '550px', backgroundColor: 'rgb(224, 224, 224)' }}>
+        <div style={{ position: 'absolute', right: 'calc(10% + 0px)', top: 'calc(24%)', width: '546px', height: '550px' }}>
           {/* subcategory */}
           <div>
-            <select className='Select' style={{ width: '100%', height: '3vh', fontSize: '14px' }} value={this.state.subcategory} onChange={this.handleSubcategory}>
+            <select className='Select' style={{ width: '100%', height: '100%', fontSize: '14px', height: '48px', padding: '0 14px', borderColor: 'rgb(235, 235, 235)' }} value={this.state.subcategory} onChange={this.handleSubcategory}>
               {data[category].map((labial) => (
                 <option key={labial.id} value={labial.subcategory}>
                   {labial.subcategory}
@@ -131,36 +131,58 @@ class App extends React.Component {
             <div>
               {data[category].map((labial) => (
                 <div key={labial.id}>
-                  <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 170px) / 2)' }}></div>
                   {labial.subcategory === subcategory && (
-                    <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'row', width: '100%', padding: '28px 0px', height: '50%', overflow: 'hidden', justifyContent: 'flex-start', floxFlow: 'row nowrap' }}>
-                      {labial.product.map((products, id) => (
-                        <div style={{ width: 'calc(100% - 24px)', height: '100%', margin: '0px 12px', display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', overflow: 'hidden' }}>
-                          <a onClick={() => this.handleProduct(id)} style={{ width: '170px', height: '275px' }}>
-                            <div key={products.id} style={{ border: '1px #999999 solid', padding: '12px', width: '100%', height: '100%' }} >
-                              <img src={image} style={{ width: '100px', height: '100px'}}></img>
-                              <h5>{products.tonos[color]}</h5>
-                              <h3>{products.name}</h3>
-                              <h5>{products.desc}</h5>
-                              <h5>{products.price}</h5>
+                    <div style={{ width: '100%', height: '50%', padding: '28px 0px' }}>
+                      <div style={{ width: '100%', height: '100%', position: 'relative', boxSizing: 'border-box', padding: '0px 32px' }}>
+                        <div style={{ width: 'calc(100%-24px)', height: '100%', margin: '0px 12px', display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', overflow: 'hidden' }}>
+                          <button style={{ position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', right: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE+SURBVHgB7ZqxUUJBFEUPWoCUsCVYAqGhHWhqpB1AB9oBdGAJagUamlGCUgG85S/D/8uQwQfm3jNzgyV7j9k9yz7AGGOMMcYcnHHkHVFy8cuSVwSZsW1AzgtiDCPfdJtwjxgpMmfbgL/ILWIkmsI3TZiXz6TI33p7K+StMUSMR7pNmHImXNMPP5FBZFTWm7PgCzFmiOsx80G3CSPEyAdgrceEGIluE2T12L4jWI+cQI99aXAf1mPhDevRerQesR7XWI80r0e96PHUGtzHb2QRuSvro+nxivPlploPEKLeAlLzhcTuO6LMIZgQ1qD8Rai+CksNUvL8sF38BCHGCBf/gLDu6omRdYcICXHdSf9vwLpDtPhnrDvrzrpD7KettO6mCJ/4mQkXUvyxnsU/aV5x/yNPCCM30THGGGPM5bAC4IqpoJUhvBcAAAAASUVORK5CYII=")' }}></button>
+                          <button style={{ position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', left: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEjSURBVHgB7dqxTcNQFIXhH1iAEW5JyQgeIRuwAhvYG8AGuKOkpkJ0dIyQETJC4ivbih2njJMnnfNJr3C6a72835EDZmZmZuV6ZEUPlO+zW0/d+kVQ3a39sGrETIfP1SJkw3z4f1Y+C0oS3dpxHH47fCYh6Aceh98hNHxu8enwuSqEfDEf/hUhpyd+gxDnDufOuXPuEOLc4dw5d84dIgLnzrlz7ig4d/es4+7keo+gFuGvQMpDMHsvewimQDiDo0D4QWhUIfwoPMpDcHoTPhDUML8JbwhqcR4XedwgJljm8RkxgfO4yGPeBPk8/nBFJfxJ6o/+12M1XAf9LvhGTMt8J9SIOZfHF8QEzqPzmCqcx9vmsRTviL5Incr3Cw1mZmZmdlkHID2vxVBNXbkAAAAASUVORK5CYII=")' }}></button>
+                          <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div>
+                          {labial.product.map((products, id) => (
+                            <div style={{ padding: '0px', margin: '0px', position: 'relative', textDecoration: 'none', flexShrink: 0, color: 'black', height: '275px', width: '150px' }}>
+                              <a onClick={() => this.handleProduct(id)}>
+                                <div key={products.id} style={{ width: '100%', height: '100%', boxSizing: 'border-box', border: '1px solid black', padding: '12px', display: 'flex', flexDirection: 'column' }}>
+                                  <div style={{ width: '100%', height: '100%', paddingBottom: '8px', boxSizing: 'border-box', overflow: 'hidden' }}>
+                                    <img src={image} style={{ width: '100%', height: '100%', objectFit: 'contain' }}></img>
+                                  </div>
+                                  <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                                    <div style={{ fontSize: '10px', lineHeight: '14px' }}>{products.tonos[color]}</div>
+                                    <div style={{ height: '8px' }}></div>
+                                    <div style={{ fontSize: '18px', fontWeight: 'bold', lineHeight: '26px', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden' }}>{products.name}</div>
+                                    <div style={{ height: '8px' }}></div>
+                                    <div style={{ fontSize: '12px', fontWeight: 300, lineHeight: '16px' }}>{products.desc}</div>
+                                    <div style={{ height: '8px' }}></div>
+                                    <div style={{ fontSize: '14px', fontWeight: 'bold', lineHeihgt: '20px' }}>$ {products.price}</div>
+                                  </div>
+                                </div>
+                              </a>
                             </div>
-                          </a>
+                          ))}
+                          <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div>
                         </div>
-                      ))}
-                      
+                      </div>
+                      <div style={{ height: '28px' }}></div>
+                      <div style={{ width: '100%', padding: '0px 15px 0px 43px', boxSizing: 'border-box', marginTop: '-6px', maxHeight: 'calc((((100%-48px)-50%)-56px)-40px)', position: 'relative', overflow: 'hidden' }}>
+                        <div style={{ width: '100%', height: '100%', position: 'relative', boxSizing: 'border-box' }}>
+                          <div style={{ width: 'calc(100%-0px)', height: '100%', margin: '0px', display: 'flex', flexFlow: 'row wrap', justifyContent: 'flex-start', overflow: 'hidden' }}>
+                            <a style={{ padding: '0px', margin: '0px', position: 'relative', textDecoration: 'none', flexShrink: 0, color: 'black', width: '52px', height: '52px' }}>
+                              <div style={{ width: 'calc(100% - 12px)', height: 'calc(100% - 12px)', padding: '2px', boxSizing: 'border-box', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundClip: 'content-box', backgroundOrigin: 'content-box', margin: '6px', borderRadius: '2px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHsSURBVHgB7dzLbcJAFIXhG5QC6CRJB5RCOqADSAdpJRWQDkgHSQdJB2SO5IU12DBj5nFfv3QWWF5Yn2zhDRB5nud549Zh+7DfsLOPTmFbyuhERL0vmuN2lNCWqPuFch2eyHUMtoo+b8ibC3ib+OCKvJxu3oFeZqmAr2EPivcS9kcL8juQ6DnsSBOPZ0rWAefwku9Gy4BzeG9hH5SYVcBreAfKyCJgMTxkDbAoHrIEWBwPWQGsgocsAFbDQ9oBq+IhzYDV8ZBWwCZ4SCNgMzykDbApHtIE2BwPaQHsgoc0AHbDQ9IBu+IhyYDd8ZBUQBZ4SCIgGzwkDZAVHpIEyA4PSQFkiYckALLFQ9wBWeMhzoDs8RBXQBF4iCOgGDzEDVAUHuIEKA4PcQEUiYc4AIrFQ70BReOhnoDi8VAvQBV4qAegGjzUGlAVHmoJqA4PtQJUiYdaAKrFQ7UBVeOhmoDq8VAtQBN4qAagGTxUGtAUHioJaA4PlQI0iYdKAJrFQ/cCmsZD9wCax0NLAR1vaAmg443KBXS8qBxAx5soFfCJHG+yx8TzdhPHzOOhpd/Cjje0BNDxRqU+wuP2wzzS93PX5jlgXj/xgRjwk7xrfaWchPe9s+9iB0oML8vvYd9E3S+aw46U+TfInud5VvoH3sHSyIJk2roAAAAASUVORK5CYII=")' }}></div>
+                            </a>
+                            {labial.product[product].color.map((col, id) => (
+                              <a onClick={() => this.handleColor(id)} style={{ padding: '0px', margin: '0px', position: 'relative', textDecoration: 'none', flexShrink: 0, color: 'black', width: '52px', height: '52px' }}>
+                                <div key={col.id} style={{ width: 'calc(100% - 12px)', height: 'calc(100% - 12px)', padding: '2px', boxSizing: 'border-box', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundClip: 'content-box', backgroundOrigin: 'content-box', margin: '6px', borderRadius: '2px', backgroundColor: col }}></div>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    
                   )}
+
                 </div>
               ))}
+              {/* <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div> */}
             </div>
-            {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        {labial.product[product].color.map((col, id) => (
-                          <a onClick={() => this.handleColor(id)}>
-                            <div key={col.id} style={{ backgroundColor: col, width: '3vh', height: '3vh', marginRight: '.5vh' }}></div>
-                          </a>
-                        ))}
-                      </div> */}
           </div>
         </div>
 
