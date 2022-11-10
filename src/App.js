@@ -77,7 +77,6 @@ class App extends React.Component {
   }
 
   handleSubcategory(event) {
-    // console.log(event.value);
     this.setState({
       subcategory: event.value,
       color: 0,
@@ -87,7 +86,6 @@ class App extends React.Component {
   }
 
   handleProduct(id) {
-    // console.log('product', id);
     this.setState({
       product: id,
       color: 0,
@@ -104,8 +102,6 @@ class App extends React.Component {
 
   handleRight() {
     const subcategoryIndex = data[this.state.category].indexOf(data[this.state.category].find(x => x.subcategory === this.state.subcategory));
-    // console.log(data[this.state.category][subcategoryIndex].product.length);
-    // console.log(data[this.state.category][1].product.length);
     if (this.state.move < data[this.state.category][subcategoryIndex].product.length - 1) {
       this.setState({
         move: this.state.move + 1,
@@ -130,13 +126,11 @@ class App extends React.Component {
 
   scollLeft() {
     const element = document.getElementById('scroll');
-    // console.log(element.scrollLeft);
     element.scrollLeft += 182;
   }
 
   scrollRight() {
     const element = document.getElementById('scroll');
-    // console.log(element.scrollLeft);
     element.scrollLeft -= 182;
   }
 
@@ -204,14 +198,6 @@ class App extends React.Component {
         <div style={{ position: 'absolute', right: 'calc(10% + 0px)', top: 'calc(24%)', width: '546px', height: '550px' }}>
           {/* subcategory */}
           <div className='Custom-Select'>
-            {/* <select className='Select' style={{ width: '100%', height: '100%', fontSize: '14px', height: '48px', padding: '0 14px', boxShadow: 'none', visibility: subcategory !== '-' ? 'initial' : 'hidden' }} value={subcategory} onChange={this.handleSubcategory}>
-              {data[category].map((labial) => (
-                <option key={labial.id} value={labial.subcategory}>
-                  {labial.subcategory}
-                </option>
-              ))}
-            </select> */}
-
             {subcategory !== '-' ?
             <Select styles={selectStyles} placeholder={subcategory} isSearchable={false} value={subcategory} onChange={this.handleSubcategory} options={options} />
             : null}
@@ -271,7 +257,6 @@ class App extends React.Component {
                   )}
                 </div>
               ))}
-              {/* <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div> */}
             </div>
           </div>
         </div>
