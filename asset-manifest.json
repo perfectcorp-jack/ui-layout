@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ui-layout/static/css/main.9843b9d9.css",
-    "main.js": "/ui-layout/static/js/main.678f94e1.js",
+    "main.css": "/ui-layout/static/css/main.c4617c88.css",
+    "main.js": "/ui-layout/static/js/main.0a4572cf.js",
     "static/js/787.7ea160a4.chunk.js": "/ui-layout/static/js/787.7ea160a4.chunk.js",
     "static/media/FreigBigProSemIta.otf": "/ui-layout/static/media/FreigBigProSemIta.65075016a99ddc715431.otf",
     "static/media/FreigBigProBolIta.otf": "/ui-layout/static/media/FreigBigProBolIta.ffdc5106654745ca81aa.otf",
@@ -33,12 +33,12 @@
     "static/media/Gotham-Light.otf": "/ui-layout/static/media/Gotham-Light.4c8ecdf2bb4be56add8c.otf",
     "static/media/image.png": "/ui-layout/static/media/image.0a78ed725633422235a6.png",
     "index.html": "/ui-layout/index.html",
-    "main.9843b9d9.css.map": "/ui-layout/static/css/main.9843b9d9.css.map",
-    "main.678f94e1.js.map": "/ui-layout/static/js/main.678f94e1.js.map",
+    "main.c4617c88.css.map": "/ui-layout/static/css/main.c4617c88.css.map",
+    "main.0a4572cf.js.map": "/ui-layout/static/js/main.0a4572cf.js.map",
     "787.7ea160a4.chunk.js.map": "/ui-layout/static/js/787.7ea160a4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9843b9d9.css",
-    "static/js/main.678f94e1.js"
+    "static/css/main.c4617c88.css",
+    "static/js/main.0a4572cf.js"
   ]
 }
