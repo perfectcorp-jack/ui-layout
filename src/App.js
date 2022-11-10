@@ -32,13 +32,13 @@ import './fonts/Gotham/Gotham-XLightItalic.otf';
 import lbel from './icon/lbel.png';
 import cross from './icon/cbimage.png';
 import image from './icon/image.png';
-import looks from './category_icons/LOOKS.png';
-import labiales from './category_icons/LABIALES.png';
+import looks from './category_icons/Looks.png';
+import labiales from './category_icons/Labiales.png';
 import mascaras from './category_icons/Máscaras.png';
-import bases from './category_icons/BASES.png';
-import polvos from './category_icons/POLVOS.png';
+import bases from './category_icons/Bases.png';
+import polvos from './category_icons/Polvos.png';
 import delinear from './category_icons/Delinear.png';
-import rubores from './category_icons/RUBORES.png';
+import rubores from './category_icons/Rubores.png';
 
 
 class App extends React.Component {
@@ -85,7 +85,8 @@ class App extends React.Component {
 
   handleColor(col) {
     console.log(col);
-    console.log(data[this.state.category]);
+    // console.log(data[this.state.category]);
+
     this.setState({
       color: col,
       tonos: '',
@@ -93,7 +94,10 @@ class App extends React.Component {
   }
 
   handleRight() {
-    if (this.state.product < data[this.state.category].length - 1) {
+    const subcategoryIndex = data[this.state.category].indexOf(data[this.state.category].find(x => x.subcategory === this.state.subcategory));
+    // console.log(data[this.state.category][subcategoryIndex].product.length);
+    // console.log(data[this.state.category][1].product.length);
+    if (this.state.product < data[this.state.category][subcategoryIndex].product.length - 1) {
       this.setState({
         product: this.state.product + 1,
         color: 0,
