@@ -85,8 +85,6 @@ class App extends React.Component {
 
   handleColor(col) {
     console.log(col);
-    // console.log(data[this.state.category]);
-
     this.setState({
       color: col,
       tonos: '',
@@ -173,22 +171,26 @@ class App extends React.Component {
                           <button onClick={this.handleLeft} style={{ position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', left: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEjSURBVHgB7dqxTcNQFIXhH1iAEW5JyQgeIRuwAhvYG8AGuKOkpkJ0dIyQETJC4ivbih2njJMnnfNJr3C6a72835EDZmZmZuV6ZEUPlO+zW0/d+kVQ3a39sGrETIfP1SJkw3z4f1Y+C0oS3dpxHH47fCYh6Aceh98hNHxu8enwuSqEfDEf/hUhpyd+gxDnDufOuXPuEOLc4dw5d84dIgLnzrlz7ig4d/es4+7keo+gFuGvQMpDMHsvewimQDiDo0D4QWhUIfwoPMpDcHoTPhDUML8JbwhqcR4XedwgJljm8RkxgfO4yGPeBPk8/nBFJfxJ6o/+12M1XAf9LvhGTMt8J9SIOZfHF8QEzqPzmCqcx9vmsRTviL5Incr3Cw1mZmZmdlkHID2vxVBNXbkAAAAASUVORK5CYII=")' }}></button>
                           <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div>
                           {labial.product.map((products, id) => (
-                              <a onClick={() => this.handleProduct(id)} style={{ padding: '0px', margin: '0px', position: 'relative', textDecoration: 'none', flexShrink: 0, color: 'black', height: '275px', width: '182px' }}>
-                                <div key={products.id} style={{ width: '100%', height: '100%', boxSizing: 'border-box', padding: '12px', display: 'flex', flexDirection: 'column', border: id === product ? '1px solid black' : null }}>
-                                  <div style={{ width: '100%', height: '100%', paddingBottom: '8px', boxSizing: 'border-box', overflow: 'hidden' }}>
-                                    <img src={image} style={{ width: '100%', height: '100%', objectFit: 'contain' }}></img>
-                                  </div>
-                                  <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                                    <div style={{ fontSize: '10px', lineHeight: '14px' }}>{color !== -1 ? products.tonos[color] : null}</div>
-                                    <div style={{ height: '8px' }}></div>
-                                    <div style={{ fontSize: '18px', fontWeight: 'bold', lineHeight: '26px', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', fontFamily: 'FreightBigPro' }}>{products.name}</div>
-                                    <div style={{ height: '8px' }}></div>
-                                    <div style={{ fontSize: '12px', fontWeight: 300, lineHeight: '16px' }}>{products.desc}</div>
-                                    <div style={{ height: '8px' }}></div>
-                                    <div style={{ fontSize: '14px', fontWeight: 'bold', lineHeihgt: '20px' }}>$ {products.price}</div>
-                                  </div>
+                            <a onClick={() => this.handleProduct(id)} style={{ padding: '0px', margin: '0px', position: 'relative', textDecoration: 'none', flexShrink: 0, color: 'black', height: '275px', width: '182px' }}>
+                              <div key={products.id} style={{ width: '100%', height: '100%', boxSizing: 'border-box', padding: '12px', display: 'flex', flexDirection: 'column', border: id === product ? '1px solid black' : null }}>
+                                <div style={{ width: '100%', height: '100%', paddingBottom: '8px', boxSizing: 'border-box', overflow: 'hidden' }}>
+                                  <img src={image} style={{ width: '100%', height: '100%', objectFit: 'contain' }}></img>
                                 </div>
-                              </a>
+                                <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                                  { product === id ? (
+                                    <div style={{ fontSize: '10px', lineHeight: '14px' }}>{color !== -1 ? products.tonos[color] : products.tonos[0]}</div>
+                                  ) : (
+                                    <div style={{ fontSize: '10px', lineHeight: '14px' }}>{products.tonos[0]}</div>
+                                  )}
+                                  <div style={{ height: '8px' }}></div>
+                                  <div style={{ fontSize: '18px', fontWeight: 'bold', lineHeight: '26px', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', fontFamily: 'FreightBigPro' }}>{products.name}</div>
+                                  <div style={{ height: '8px' }}></div>
+                                  <div style={{ fontSize: '12px', fontWeight: 300, lineHeight: '16px' }}>{products.desc}</div>
+                                  <div style={{ height: '8px' }}></div>
+                                  <div style={{ fontSize: '14px', fontWeight: 'bold', lineHeihgt: '20px' }}>$ {products.price}</div>
+                                </div>
+                              </div>
+                            </a>
                           ))}
                           <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div>
                         </div>
@@ -210,7 +212,6 @@ class App extends React.Component {
                       </div>
                     </div>
                   )}
-
                 </div>
               ))}
               {/* <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div> */}
