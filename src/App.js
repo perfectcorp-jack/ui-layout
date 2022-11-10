@@ -137,6 +137,7 @@ class App extends React.Component {
   render() {
     const { category, subcategory, product, color } = this.state;
     const categoryImage = [labiales, mascaras, bases, polvos, delinear, rubores];
+    const subcategoryIndex = data[this.state.category].indexOf(data[this.state.category].find(x => x.subcategory === this.state.subcategory));
     const options = data[category].map((labial) => (
       { value: labial.subcategory, label: labial.subcategory }
     ));
@@ -146,9 +147,11 @@ class App extends React.Component {
         return {
           ...styles,
           borderBottom: '1px solid rgb(239, 239, 239)',
+          borderRadius: 0,
           backgroundColor: 'white',
           fontSize: 14,
           padding: 16,
+          cursor: 'pointer',
           ':active': {
             ...styles[':active'],
             backgroundColor: !isDisabled ? isSelected ? 'white' : 'white' : undefined,
@@ -157,6 +160,9 @@ class App extends React.Component {
           },
         };
       },
+      menu: (styles) => ({ ...styles, backgroundColor: 'white', width: '100%', borderRadius: 0, border: '1px solid rgb(239, 239, 239)', boxShadow: 'rgba(0, 0, 0, 0.15) 0px 0px 6px 0px', }),
+      menuList: (styles) => ({ ...styles, padding: 0, }),
+      menuPortal: (styles) => ({ ...styles, zIndex: 9999, }),
       placeholder: (styles) => ({ ...styles, color: 'black', fontSize: 14, padding: 0, }),
       dropdownIndicator: (styles) => ({ ...styles, color: 'black', }),
       indicatorSeparator: (styles) => ({ ...styles, display: 'none' }),
@@ -210,8 +216,9 @@ class App extends React.Component {
                     <div style={{ width: '100%', height: '50%', padding: '28px 0px' }}>
                       <div style={{ width: '100%', height: '100%', position: 'relative', boxSizing: 'border-box', padding: '0px 32px' }}>
                         <div id='scroll' style={{ width: 'calc(100%-24px)', height: '100%', margin: '0px 12px', display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', overflow: 'hidden' }}>
-                          <button onClick={this.handleRight} style={{ position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', right: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE+SURBVHgB7ZqxUUJBFEUPWoCUsCVYAqGhHWhqpB1AB9oBdGAJagUamlGCUgG85S/D/8uQwQfm3jNzgyV7j9k9yz7AGGOMMcYcnHHkHVFy8cuSVwSZsW1AzgtiDCPfdJtwjxgpMmfbgL/ILWIkmsI3TZiXz6TI33p7K+StMUSMR7pNmHImXNMPP5FBZFTWm7PgCzFmiOsx80G3CSPEyAdgrceEGIluE2T12L4jWI+cQI99aXAf1mPhDevRerQesR7XWI80r0e96PHUGtzHb2QRuSvro+nxivPlploPEKLeAlLzhcTuO6LMIZgQ1qD8Rai+CksNUvL8sF38BCHGCBf/gLDu6omRdYcICXHdSf9vwLpDtPhnrDvrzrpD7KettO6mCJ/4mQkXUvyxnsU/aV5x/yNPCCM30THGGGPM5bAC4IqpoJUhvBcAAAAASUVORK5CYII=")' }}></button>
-                          <button onClick={this.handleLeft} style={{ position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', left: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEjSURBVHgB7dqxTcNQFIXhH1iAEW5JyQgeIRuwAhvYG8AGuKOkpkJ0dIyQETJC4ivbih2njJMnnfNJr3C6a72835EDZmZmZuV6ZEUPlO+zW0/d+kVQ3a39sGrETIfP1SJkw3z4f1Y+C0oS3dpxHH47fCYh6Aceh98hNHxu8enwuSqEfDEf/hUhpyd+gxDnDufOuXPuEOLc4dw5d84dIgLnzrlz7ig4d/es4+7keo+gFuGvQMpDMHsvewimQDiDo0D4QWhUIfwoPMpDcHoTPhDUML8JbwhqcR4XedwgJljm8RkxgfO4yGPeBPk8/nBFJfxJ6o/+12M1XAf9LvhGTMt8J9SIOZfHF8QEzqPzmCqcx9vmsRTviL5Incr3Cw1mZmZmdlkHID2vxVBNXbkAAAAASUVORK5CYII=")' }}></button>
+                          <div></div>
+                          <button onClick={this.handleRight} style={{ visibility: this.state.move < data[category][subcategoryIndex].product.length - 1  ? 'initial' : 'hidden' , position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', right: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE+SURBVHgB7ZqxUUJBFEUPWoCUsCVYAqGhHWhqpB1AB9oBdGAJagUamlGCUgG85S/D/8uQwQfm3jNzgyV7j9k9yz7AGGOMMcYcnHHkHVFy8cuSVwSZsW1AzgtiDCPfdJtwjxgpMmfbgL/ILWIkmsI3TZiXz6TI33p7K+StMUSMR7pNmHImXNMPP5FBZFTWm7PgCzFmiOsx80G3CSPEyAdgrceEGIluE2T12L4jWI+cQI99aXAf1mPhDevRerQesR7XWI80r0e96PHUGtzHb2QRuSvro+nxivPlploPEKLeAlLzhcTuO6LMIZgQ1qD8Rai+CksNUvL8sF38BCHGCBf/gLDu6omRdYcICXHdSf9vwLpDtPhnrDvrzrpD7KettO6mCJ/4mQkXUvyxnsU/aV5x/yNPCCM30THGGGPM5bAC4IqpoJUhvBcAAAAASUVORK5CYII=")' }}></button>
+                          <button onClick={this.handleLeft} style={{ visibility: this.state.move > 0 ? 'initial' : 'hidden', position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', left: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEjSURBVHgB7dqxTcNQFIXhH1iAEW5JyQgeIRuwAhvYG8AGuKOkpkJ0dIyQETJC4ivbih2njJMnnfNJr3C6a72835EDZmZmZuV6ZEUPlO+zW0/d+kVQ3a39sGrETIfP1SJkw3z4f1Y+C0oS3dpxHH47fCYh6Aceh98hNHxu8enwuSqEfDEf/hUhpyd+gxDnDufOuXPuEOLc4dw5d84dIgLnzrlz7ig4d/es4+7keo+gFuGvQMpDMHsvewimQDiDo0D4QWhUIfwoPMpDcHoTPhDUML8JbwhqcR4XedwgJljm8RkxgfO4yGPeBPk8/nBFJfxJ6o/+12M1XAf9LvhGTMt8J9SIOZfHF8QEzqPzmCqcx9vmsRTviL5Incr3Cw1mZmZmdlkHID2vxVBNXbkAAAAASUVORK5CYII=")' }}></button>
                           <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div>
                           {labial.product.map((products, id) => (
                             <a onClick={() => this.handleProduct(id)} style={{ padding: '0px', margin: '0px', position: 'relative', textDecoration: 'none', flexShrink: 0, color: 'black', height: '275px', width: '182px' }}>
