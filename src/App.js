@@ -58,6 +58,8 @@ class App extends React.Component {
     this.handleColor = this.handleColor.bind(this);
     this.handleRight = this.handleRight.bind(this);
     this.handleLeft = this.handleLeft.bind(this);
+    this.scollLeft = this.scollLeft.bind(this);
+    this.scrollRight = this.scrollRight.bind(this);
   }
 
   handleCategory(key) {
@@ -100,6 +102,7 @@ class App extends React.Component {
         product: this.state.product + 1,
         color: 0,
       });
+      this.scollLeft();
     }
   }
 
@@ -109,7 +112,20 @@ class App extends React.Component {
         product: this.state.product - 1,
         color: 0,
       });
+      this.scrollRight();
     }
+  }
+
+  scollLeft() {
+    const element = document.getElementById('scroll');
+    console.log(element.scrollLeft);
+    element.scrollLeft += 182;
+  }
+
+  scrollRight() {
+    const element = document.getElementById('scroll');
+    console.log(element.scrollLeft);
+    element.scrollLeft -= 182;
   }
 
   render() {
@@ -166,7 +182,7 @@ class App extends React.Component {
                   {labial.subcategory === subcategory && (
                     <div style={{ width: '100%', height: '50%', padding: '28px 0px' }}>
                       <div style={{ width: '100%', height: '100%', position: 'relative', boxSizing: 'border-box', padding: '0px 32px' }}>
-                        <div style={{ width: 'calc(100%-24px)', height: '100%', margin: '0px 12px', display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', overflow: 'hidden' }}>
+                        <div id='scroll' style={{ width: 'calc(100%-24px)', height: '100%', margin: '0px 12px', display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', overflow: 'hidden' }}>
                           <button onClick={this.handleRight} style={{ position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', right: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE+SURBVHgB7ZqxUUJBFEUPWoCUsCVYAqGhHWhqpB1AB9oBdGAJagUamlGCUgG85S/D/8uQwQfm3jNzgyV7j9k9yz7AGGOMMcYcnHHkHVFy8cuSVwSZsW1AzgtiDCPfdJtwjxgpMmfbgL/ILWIkmsI3TZiXz6TI33p7K+StMUSMR7pNmHImXNMPP5FBZFTWm7PgCzFmiOsx80G3CSPEyAdgrceEGIluE2T12L4jWI+cQI99aXAf1mPhDevRerQesR7XWI80r0e96PHUGtzHb2QRuSvro+nxivPlploPEKLeAlLzhcTuO6LMIZgQ1qD8Rai+CksNUvL8sF38BCHGCBf/gLDu6omRdYcICXHdSf9vwLpDtPhnrDvrzrpD7KettO6mCJ/4mQkXUvyxnsU/aV5x/yNPCCM30THGGGPM5bAC4IqpoJUhvBcAAAAASUVORK5CYII=")' }}></button>
                           <button onClick={this.handleLeft} style={{ position: 'absolute', width: '32px', height: '32px', top: 'calc((100% - 32px) / 2)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain', backgroundColor: 'transparent', margin: '0px', padding: '0px', border: '0px', cursor: 'pointer', left: '0px', backgroundImage: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEjSURBVHgB7dqxTcNQFIXhH1iAEW5JyQgeIRuwAhvYG8AGuKOkpkJ0dIyQETJC4ivbih2njJMnnfNJr3C6a72835EDZmZmZuV6ZEUPlO+zW0/d+kVQ3a39sGrETIfP1SJkw3z4f1Y+C0oS3dpxHH47fCYh6Aceh98hNHxu8enwuSqEfDEf/hUhpyd+gxDnDufOuXPuEOLc4dw5d84dIgLnzrlz7ig4d/es4+7keo+gFuGvQMpDMHsvewimQDiDo0D4QWhUIfwoPMpDcHoTPhDUML8JbwhqcR4XedwgJljm8RkxgfO4yGPeBPk8/nBFJfxJ6o/+12M1XAf9LvhGTMt8J9SIOZfHF8QEzqPzmCqcx9vmsRTviL5Incr3Cw1mZmZmdlkHID2vxVBNXbkAAAAASUVORK5CYII=")' }}></button>
                           <div style={{ height: '100%', flexShrink: 0, width: 'calc((100% - 150px) / 2)' }}></div>
@@ -177,7 +193,7 @@ class App extends React.Component {
                                   <img src={image} style={{ width: '100%', height: '100%', objectFit: 'contain' }}></img>
                                 </div>
                                 <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                                  { product === id ? (
+                                  {product === id ? (
                                     <div style={{ fontSize: '10px', lineHeight: '14px' }}>{color !== -1 ? products.tonos[color] : products.tonos[0]}</div>
                                   ) : (
                                     <div style={{ fontSize: '10px', lineHeight: '14px' }}>{products.tonos[0]}</div>
