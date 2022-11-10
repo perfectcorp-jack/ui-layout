@@ -113,14 +113,14 @@
   border: 1px solid rgb(239, 239, 239);
 }
 
-option:checked {
+/* option:checked {
   color: rgb(97, 75, 121);
   font-weight: bold;
-}
+} */
 
-.Select:focus-visible {
+/* .Select:focus-visible {
   outline: none;
-}
+} */
 
 a {
   cursor: pointer;

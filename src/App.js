@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Select from 'react-select'
 import data from './data/product.json';
 import './fonts/Freight Big Pro/FreigBigProBla.otf';
 import './fonts/Freight Big Pro/FreigBigProBlaIta.otf';
@@ -49,6 +50,7 @@ class App extends React.Component {
       category: 'Labiales',
       subcategory: 'Rojos',
       product: 0,
+      move: 0,
       color: 0,
       tonos: '',
     }
@@ -63,26 +65,33 @@ class App extends React.Component {
   }
 
   handleCategory(key) {
-    console.log(key);
+    console.log(this.state.move);
     this.setState({
       category: key,
       product: 0,
       subcategory: data[key][0].subcategory,
       color: 0,
+      move: 0,
     });
+    this.scrollInit();
   }
 
   handleSubcategory(event) {
+    // console.log(event.value);
     this.setState({
-      subcategory: event.target.value,
+      subcategory: event.value,
       color: 0,
-      product: 0
+      product: 0,
+      move: 0,
     });
   }
 
   handleProduct(id) {
-    console.log('product', id);
-    this.setState({ product: id, color: 0 });
+    // console.log('product', id);
+    this.setState({
+      product: id,
+      color: 0,
+    });
   }
 
   handleColor(col) {
@@ -97,42 +106,70 @@ class App extends React.Component {
     const subcategoryIndex = data[this.state.category].indexOf(data[this.state.category].find(x => x.subcategory === this.state.subcategory));
     // console.log(data[this.state.category][subcategoryIndex].product.length);
     // console.log(data[this.state.category][1].product.length);
-    if (this.state.product < data[this.state.category][subcategoryIndex].product.length - 1) {
+    if (this.state.move < data[this.state.category][subcategoryIndex].product.length - 1) {
       this.setState({
-        product: this.state.product + 1,
-        color: 0,
+        move: this.state.move + 1,
       });
       this.scollLeft();
     }
   }
 
   handleLeft() {
-    if (this.state.product > 0) {
+    if (this.state.move > 0) {
       this.setState({
-        product: this.state.product - 1,
-        color: 0,
+        move: this.state.move - 1,
       });
       this.scrollRight();
     }
   }
 
+  scrollInit() {
+    const element = document.getElementById('scroll');
+    element.scrollLeft = 0;
+  }
+
   scollLeft() {
     const element = document.getElementById('scroll');
-    console.log(element.scrollLeft);
+    // console.log(element.scrollLeft);
     element.scrollLeft += 182;
   }
 
   scrollRight() {
     const element = document.getElementById('scroll');
-    console.log(element.scrollLeft);
+    // console.log(element.scrollLeft);
     element.scrollLeft -= 182;
   }
 
   render() {
-    const { category, categoryColor, subcategory, product, color } = this.state;
+    const { category, subcategory, product, color } = this.state;
     const categoryImage = [labiales, mascaras, bases, polvos, delinear, rubores];
+    const options = data[category].map((labial) => (
+      { value: labial.subcategory, label: labial.subcategory }
+    ));
+    const selectStyles = {
+      control: (styles) => ({ ...styles, padding: '0px 4px', backgroundColor: 'white', width: '100%', height: 46, borderRadius: 0, border: '1px solid rgb(239, 239, 239)', boxShadow: 'none', }),
+      option: (styles) => ({ options, isDisabled, isFocused, isSelected }) => {
+        return {
+          ...styles,
+          borderBottom: '1px solid rgb(239, 239, 239)',
+          backgroundColor: 'white',
+          fontSize: 14,
+          padding: 16,
+          ':active': {
+            ...styles[':active'],
+            backgroundColor: !isDisabled ? isSelected ? 'white' : 'white' : undefined,
+            color: !isDisabled ? isSelected ? 'rgb(0, 0, 0)' : 'rgb(97, 75, 121)' : undefined,
+            fontWeight: !isDisabled ? isSelected ? 'normal' : 'bold' : undefined,
+          },
+        };
+      },
+      placeholder: (styles) => ({ ...styles, color: 'black', fontSize: 14, padding: 0, }),
+      dropdownIndicator: (styles) => ({ ...styles, color: 'black', }),
+      indicatorSeparator: (styles) => ({ ...styles, display: 'none' }),
+    }
+
     return (
-      <div className="App" style={{ textAlign: 'center', width: '1400px', height: '820px', minWidth: '1160px', minheight: '820px' }}>
+      <div className="App" style={{ width: '1400px', height: '820px', minWidth: '1160px', minheight: '820px' }}>
         <div style={{ position: 'absolute', left: '10%', top: 'calc(24%)', width: '546px', height: '550px', backgroundColor: 'rgb(246, 246, 246)' }}></div>
         <div style={{ padding: '0px 10%', boxSizing: 'border-box', width: '100%', height: '12%', backgroundColor: 'rgb(246, 246, 246)', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', position: 'relative' }}>
           <div className='Nav-title'>
@@ -167,13 +204,17 @@ class App extends React.Component {
         <div style={{ position: 'absolute', right: 'calc(10% + 0px)', top: 'calc(24%)', width: '546px', height: '550px' }}>
           {/* subcategory */}
           <div className='Custom-Select'>
-            <select className='Select' style={{ width: '100%', height: '100%', fontSize: '14px', height: '48px', padding: '0 14px', boxShadow: 'none', visibility: subcategory !== '-' ? 'initial' : 'hidden' }} value={subcategory} onChange={this.handleSubcategory}>
+            {/* <select className='Select' style={{ width: '100%', height: '100%', fontSize: '14px', height: '48px', padding: '0 14px', boxShadow: 'none', visibility: subcategory !== '-' ? 'initial' : 'hidden' }} value={subcategory} onChange={this.handleSubcategory}>
               {data[category].map((labial) => (
                 <option key={labial.id} value={labial.subcategory}>
                   {labial.subcategory}
                 </option>
               ))}
-            </select>
+            </select> */}
+
+            {subcategory !== '-' ?
+            <Select styles={selectStyles} placeholder={subcategory} isSearchable={false} value={subcategory} onChange={this.handleSubcategory} options={options} />
+            : null}
 
             {/* product */}
             <div>
